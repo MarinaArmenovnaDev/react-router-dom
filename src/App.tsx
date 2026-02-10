@@ -1,22 +1,9 @@
 import styles from "./components/Site.module.css";
-import {Navigate, NavLink, Route, Routes} from "react-router-dom";
-import {Adidas} from "./components/pages/Adidas/Adidas.tsx";
-import {Puma} from "./components/pages/Puma/Puma.tsx";
-import {Nike} from "./components/pages/Nike/Nike.tsx";
-import {Error404} from "./components/pages/Error/Error404.tsx";
+import {NavLink, Outlet} from "react-router-dom";
 import {Menu, ShoppingCart} from "lucide-react";
 import logo
     from "./assets/images/png-transparent-infinity-symbol-logo-sticker-others-miscellaneous-text-logo-removebg-preview 1.png"
-import {Model} from "./components/Model/Model.tsx";
-
-
-const PATH = {
-    ADIDAS: "/adidas",
-    PUMA: "/puma",
-    NIKE: "/nike",
-    ERROR: "/*",
-    MODEL: "/:brand/:id",
-}as const;
+import {PATH} from "./Route/Router.tsx";
 
 export type Item = {
     id: number;
@@ -56,22 +43,28 @@ export const App = () => {
                              className={({isActive}) => isActive ? styles.activeNavLink : styles.navLink}> PUMA</NavLink>
                     <NavLink to={PATH.NIKE}
                              className={({isActive}) => isActive ? styles.activeNavLink : styles.navLink}> NIKE</NavLink>
+                    <NavLink to={PATH.PRICES}
+                             className={({isActive}) => isActive ? styles.activeNavLink : styles.navLink}> PRICES FOR SELLERS</NavLink>
+                    <NavLink to={PATH.PROTECTED_PAGE}
+                             className={({isActive}) => isActive ? styles.activeNavLink : styles.navLink}> PROTECTED PAGE</NavLink>
                 </div>
                 <div className={styles.content}>
-                    <Routes>
-                        <Route path="/" element={<Navigate to={PATH.ADIDAS}/>}/>
+                    <Outlet/>
+                    {/*<Routes>*/}
+                    {/*    <Route path="/" element={<Navigate to={PATH.ADIDAS}/>}/>*/}
 
-                        <Route path={PATH.ADIDAS} element={<Adidas/>}/>
-                        <Route path={PATH.PUMA} element={<Puma/>}/>
-                        <Route path={PATH.NIKE} element={<Nike/>}/>
-                        <Route path={PATH.ERROR} element={<Error404/>}/>
-                        <Route path={PATH.MODEL} element={<Model/>}/>
+                    {/*    <Route path={PATH.ADIDAS} element={<Adidas/>}/>*/}
+                    {/*    <Route path={PATH.PUMA} element={<Puma/>}/>*/}
+                    {/*    <Route path={PATH.NIKE} element={<Nike/>}/>*/}
+                    {/*    <Route path={PATH.ERROR} element={<Error404/>}/>*/}
+                    {/*    <Route path={PATH.MODEL} element={<Model/>}/>*/}
+                    {/*    <Route path={PATH.PRICES} element={<Prices/>}/>*/}
 
 
                         {/*<Route path={PATH.ERROR} element={<Error404/>}/>*/}
                         {/*<Route path="/*" element={<Navigate to={PATH.ERROR}/>}/>*/}
 
-                    </Routes>
+                    {/*</Routes>*/}
                 </div>
             </div>
             <div className={styles.footer}>abibas 2023</div>
