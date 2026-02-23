@@ -50,21 +50,6 @@ export const App = () => {
                 </div>
                 <div className={styles.content}>
                     <Outlet/>
-                    {/*<Routes>*/}
-                    {/*    <Route path="/" element={<Navigate to={PATH.ADIDAS}/>}/>*/}
-
-                    {/*    <Route path={PATH.ADIDAS} element={<Adidas/>}/>*/}
-                    {/*    <Route path={PATH.PUMA} element={<Puma/>}/>*/}
-                    {/*    <Route path={PATH.NIKE} element={<Nike/>}/>*/}
-                    {/*    <Route path={PATH.ERROR} element={<Error404/>}/>*/}
-                    {/*    <Route path={PATH.MODEL} element={<Model/>}/>*/}
-                    {/*    <Route path={PATH.PRICES} element={<Prices/>}/>*/}
-
-
-                        {/*<Route path={PATH.ERROR} element={<Error404/>}/>*/}
-                        {/*<Route path="/*" element={<Navigate to={PATH.ERROR}/>}/>*/}
-
-                    {/*</Routes>*/}
                 </div>
             </div>
             <div className={styles.footer}>abibas 2023</div>
