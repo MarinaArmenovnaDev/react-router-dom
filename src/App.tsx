@@ -1,5 +1,5 @@
 import styles from "./components/Site.module.css";
-import {NavLink, Outlet} from "react-router-dom";
+import {Link, NavLink, Outlet, useNavigate} from "react-router-dom";
 import {Menu, ShoppingCart} from "lucide-react";
 import logo
     from "./assets/images/png-transparent-infinity-symbol-logo-sticker-others-miscellaneous-text-logo-removebg-preview 1.png"
@@ -14,11 +14,18 @@ export type Item = {
 }
 
 export const App = () => {
+
+    const navigate = useNavigate();
+    const navigateHandler = () => {
+        navigate(-1)
+    }
     return (
         <div>
             <div className={styles.header}>
-                <div>
-                    <img src={logo} alt=""/>
+                <div className={styles.logoContainer}>
+                    <Link to={PATH.ADIDAS} className={styles.logoLink}>
+                        <img src={logo} alt="Logo"/>
+                    </Link>
                 </div>
 
                 <div className={styles.navLink}>
@@ -49,6 +56,11 @@ export const App = () => {
                              className={({isActive}) => isActive ? styles.activeNavLink : styles.navLink}> PROTECTED PAGE</NavLink>
                 </div>
                 <div className={styles.content}>
+                    <div className={styles.backButtonContainer}>
+                        <button onClick={navigateHandler} className={styles.backButton}>
+                            Back
+                        </button>
+                    </div>
                     <Outlet/>
                 </div>
             </div>
